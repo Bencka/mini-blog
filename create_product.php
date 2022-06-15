@@ -48,16 +48,14 @@ require_once "layout_header.php";
             <?php
 // читаем категории товаров из базы данных
 $stmt = $category->read();
-  ?>
+  
 // помещаем их в выпадающий список
-echo <select class="form-control" name="category_id">;
+echo "<select " class="form-control" " name="category_id">";
     echo "<option>Выбрать категорию...</option>";
-  <?php
+  
     while ($row_category = $stmt->fetch(PDO::FETCH_ASSOC)) {
         extract($row_category);
-       ?> 
-        echo "<option value=<?php {$id}> ?>{$name}</option>";
-        <?php
+        echo "<option value="[$id].">".[$name]."</option>";
     }
   
 echo "</select>";

@@ -56,7 +56,7 @@ echo <select class="form-control" name="category_id">;
     while ($row_category = $stmt->fetch(PDO::FETCH_ASSOC)) {
         extract($row_category);
        ?> 
-        echo "<option value=<?php {$id}> {$name}?></option>";
+        echo "<option value=<?php {$id}> ?>{$name}</option>";
         <?php
     }
   

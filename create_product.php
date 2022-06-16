@@ -32,12 +32,12 @@ if ($_POST) {
 
     // создание товара
     if ($product->create()) {
-        echo "<div class=\"alert alert-success>Товар был успешно создан.</div>";
+        echo "<div class='alert alert-success'>Товар был успешно создан.</div>";
     }
 
     // если не удается создать товар, сообщим об этом пользователю
     else {
-        echo "<div class=\"alert alert-danger>Невозможно создать товар.</div>";
+        echo "<div class='alert alert-danger'>Невозможно создать товар.</div>";
     }
 }
 ?>
@@ -70,7 +70,7 @@ if ($_POST) {
 $stmt = $category->read();
   
 // помещаем их в выпадающий список
-echo "<select class=\"form-control name=\"category_id>";
+echo "<select class='form-control' name='category_id'>";
     echo "<option>Выбрать категорию...</option>";
   
     while ($row_category = $stmt->fetch(PDO::FETCH_ASSOC)) {

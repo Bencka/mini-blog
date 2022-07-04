@@ -82,5 +82,28 @@ class Product {
             return $num;
 
         }
+        function readOne() {
+
+            // запрос MySQL
+            $query = "SELECT
+                        name, price, description, category_id
+                    FROM
+                        " . $this->table_name . "
+                    WHERE
+                        id = ?
+                    LIMIT
+                        0,1";
+        
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(1, $this->id);
+            $stmt->execute();
+        
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+            $this->name = $row["name"];
+            $this->price = $row["price"];
+            $this->description = $row["description"];
+            $this->category_id = $row["category_id"];
+        }
 }
 ?>

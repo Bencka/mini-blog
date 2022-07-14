@@ -18,7 +18,8 @@ class Product {
     }
 
     // метод создания товара
-    function create() {
+    function create(): bool
+    {
 
         // запрос MySQL для вставки записей в таблицу БД «products»
         $query = "INSERT INTO
@@ -61,7 +62,7 @@ class Product {
                 ORDER BY
                     name ASC
                 LIMIT
-                    {$from_record_num}, {$records_per_page}";
+                    $from_record_num, $records_per_page";
     
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
@@ -72,7 +73,7 @@ class Product {
     public function countAll() {
 
             // запрос MySQL
-            $query = "SELECT id FROM " . $this->table_name . "";
+            $query = "SELECT id FROM " . $this->table_name . " ";
 
             $stmt = $this->conn->prepare( $query );
             $stmt->execute();
@@ -107,7 +108,8 @@ class Product {
     }
 
     
-    function update() {
+    function update(): bool
+    {
 
         // MySQL запрос для обновления записи (товара)
         $query = "UPDATE
@@ -146,15 +148,16 @@ class Product {
     }
     
     // удаление товара
-function delete() {
+function delete(): bool
+{
 
     // запрос MySQL для удаления
-    $query = "DELETE FROM " . $this->table_name . " WHERE id = ?";
+    $query = "DELETE FROM {$this->table_name} WHERE id = ?";
 
     $stmt = $this->conn->prepare($query);
     $stmt->bindParam(1, $this->id);
 
-    if ($result = $stmt->execute()) {
+    if ($stmt->execute()) {
         return true;
     } else {
         return false;

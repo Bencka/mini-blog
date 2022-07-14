@@ -1,6 +1,6 @@
 <?php
 // получаем ID товара
-$id = isset($_GET["id"]) ? $_GET["id"] : die("ERROR: отсутствует ID.");
+$id = $_GET["id"] ?? die("ERROR: отсутствует ID.");
 
 // подключаем файлы для работы с базой данных и файлы с объектами
 include_once "config/database.php";

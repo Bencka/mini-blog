@@ -37,7 +37,7 @@ for ($x = $initial_num; $x < $condition_limit_num; $x++) {
 
 // ссылка по последнюю страницу
 if ($page < $total_pages) {
-    echo "<li><a href='' .$page_url . 'page={$total_pages}' title='Последняя страница из {$total_pages}.'>";
+    echo "<li><a href='$page_url'  'page={$total_pages}' title='Последняя страница из {$total_pages}.'>";
         echo "Последняя";
     echo "</a></li>";
 }

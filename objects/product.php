@@ -78,12 +78,11 @@ class Product {
             $stmt = $this->conn->prepare( $query );
             $stmt->execute();
 
-            $num = $stmt->rowCount();
-
-            return $num;
+        return $stmt->rowCount();
 
         }
-    function readOne() {
+    function readOne(): void
+    {
 
         // запрос MySQL
         $query = "SELECT
@@ -152,7 +151,7 @@ function delete(): bool
 {
 
     // запрос MySQL для удаления
-    $query = "DELETE FROM {$this->table_name} WHERE id = ?";
+    $query = "DELETE FROM ". $this->table_name." WHERE id = ?";
 
     $stmt = $this->conn->prepare($query);
     $stmt->bindParam(1, $this->id);
@@ -226,4 +225,3 @@ public function countAll_BySearch($search_term) {
 
 
 }
-?>

@@ -9,7 +9,8 @@ class Database {
     public $conn;
 
     // получение соединения с базой данных
-    public function getConnection() {
+    public function getConnection(): ?PDO
+    {
         $this->conn = null;
 
         try {
@@ -21,4 +22,3 @@ class Database {
         return $this->conn;
     }
 }
-?>

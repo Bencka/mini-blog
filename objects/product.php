@@ -81,7 +81,7 @@ class Product {
         return $stmt->rowCount();
 
         }
-    function readOne(): void
+    function readOne():void
     {
 
         // запрос MySQL

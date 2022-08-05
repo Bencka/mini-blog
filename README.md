@@ -1,2 +1,2 @@
-# php-oop-mysql
+# Мини блог
  php

@@ -30,7 +30,8 @@ class Category {
         return $stmt;
     }
     // получение названия категории по её ID
-function readName() {
+function readName(): void
+{
 
     // запрос MySQL
     $query = "SELECT name FROM " . $this->table_name . " WHERE id = ? limit 0,1";
@@ -45,4 +46,3 @@ function readName() {
 }
 
 }
-?>

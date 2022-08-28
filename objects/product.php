@@ -184,7 +184,7 @@ public function search($search_term, $from_record_num, $records_per_page){
     $stmt = $this->conn->prepare( $query );
 
     // привязываем значения переменных
-    $search_term = "%{$search_term}%";
+    $search_term = "%$search_term%";
     $stmt->bindParam(1, $search_term);
     $stmt->bindParam(2, $search_term);
     $stmt->bindParam(3, $from_record_num, PDO::PARAM_INT);
@@ -211,7 +211,7 @@ public function countAll_BySearch($search_term) {
     $stmt = $this->conn->prepare( $query );
 
     // привязка значений
-    $search_term = "%{$search_term}%";
+    $search_term = "%$search_term%";
     $stmt->bindParam(1, $search_term);
     $stmt->bindParam(2, $search_term);
 
